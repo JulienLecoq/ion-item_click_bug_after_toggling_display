@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Blank
@@ -6,15 +6,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-item>
+    @if (showCheckbox()) {
+      <ion-checkbox (ionChange)="stateChange()">Test checkbox</ion-checkbox>
+    } @else {
+    <ion-label>
+      Test checkbox
+    </ion-label>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-spinner
+      slot="end"
+      name="lines"
+      class="item-spinner">
+    </ion-spinner>
+    }
+  </ion-item>
+
+  <ion-button (click)="toggleDisplay()">Toggle</ion-button>
 </ion-content>
